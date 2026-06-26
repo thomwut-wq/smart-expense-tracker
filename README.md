@@ -11,7 +11,8 @@ your browser — no account, no backend, no data leaving your device.
 - **Dashboard** — Total Income, Total Expenses, and Balance at a glance.
 - **Category breakdown** — animated progress bars showing where your money goes
   (Food, Travel, Bills, Shopping, Entertainment, Health, Other).
-- **Smart Input** — type natural language and it auto-fills the form:
+- **Smart Input** — type natural language and it adds the transaction in one click
+  (when no amount is detected, it falls back to pre-filling the manual form):
   - `Spent 150 baht on lunch today` → Expense · Food · 150 · "Lunch"
   - `Earned 5000 baht from freelance` → Income · Income · 5000 · "Freelance"
   - `Paid 1,250.50 for rent` → Expense · Bills · 1250.50 · "Rent"
