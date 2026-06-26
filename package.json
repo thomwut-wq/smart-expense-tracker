@@ -1,0 +1,12 @@
+{
+  "name": "smart-expense-tracker",
+  "version": "1.0.0",
+  "description": "A self-contained single-page Smart Expense Tracker with natural-language input and LocalStorage persistence.",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": ["expense-tracker", "tailwind", "spa", "localstorage"],
+  "license": "MIT"
+}
