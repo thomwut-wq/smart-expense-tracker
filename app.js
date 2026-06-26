@@ -212,20 +212,30 @@
       showHint("Please type something like 'Spent 150 on lunch'.", false);
       return;
     }
-    // Populate the manual form so the user can review before saving.
-    el("fType").value = result.type;
-    el("fCategory").value = result.category;
-    el("fDescription").value = result.description;
-    el("fAmount").value = result.amount != null ? result.amount : "";
 
+    // Without an amount we can't save automatically — populate the manual form
+    // so the user can fill in the missing amount and add it themselves.
     if (result.amount == null) {
+      el("fType").value = result.type;
+      el("fCategory").value = result.category;
+      el("fDescription").value = result.description;
+      el("fAmount").value = "";
       showHint("Parsed as " + result.type + " / " + result.category +
-        ". Couldn't find an amount — please fill it in below.", false);
+        ". Couldn't find an amount — please fill it in below and click \"Add Transaction\".", false);
       el("fAmount").focus();
       return;
     }
-    showHint("Parsed: " + result.type + " · " + result.category + " · " +
-      formatMoney(result.amount) + ". Review and click \"Add Transaction\".", true);
+
+    // One-click: add the transaction straight from the parsed sentence.
+    addTransaction({
+      type: result.type,
+      amount: result.amount,
+      category: result.category,
+      description: result.description
+    });
+    input.value = "";
+    showHint("Added: " + result.type + " · " + result.category + " · " +
+      formatMoney(result.amount) + ".", true);
   }
 
   // ---- Init --------------------------------------------------------------
